@@ -57,24 +57,26 @@ $source ./oe-init-build-env
 Add meta-sunxi, meta-bananapi, meta-oe layers to ./conf/bblayer.conf, and it wil be something like this:
 
 $cat ./conf/bblayers.conf
+
 \# LAYER_CONF_VERSION is increased each time build/conf/bblayers.conf
+
 \# changes incompatibly
 LCONF_VERSION = "6"
 
 BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 
-BBLAYERS ?= " \
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta \
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto \
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto-bsp \
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-sunxi \
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-bananapi \
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-openembedded/meta-oe \
+BBLAYERS ?= " \\
+/home/john/opensource/yocto/poky-daisy-11.0.0/meta \\
+/home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto \\
+/home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto-bsp \\
+/home/john/opensource/yocto/poky-daisy-11.0.0/meta-sunxi \\
+/home/john/opensource/yocto/poky-daisy-11.0.0/meta-bananapi \\
+/home/john/opensource/yocto/poky-daisy-11.0.0/meta-openembedded/meta-oe \\
 "
-BBLAYERS_NON_REMOVABLE ?= " \
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta \
-/home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto \
+BBLAYERS_NON_REMOVABLE ?= " \\
+/home/john/opensource/yocto/poky-daisy-11.0.0/meta \\
+/home/john/opensource/yocto/poky-daisy-11.0.0/meta-yocto \\
 "
 
 the parent path of poky maybe different in your pc.
@@ -88,7 +90,7 @@ MACHINE ??= "bananapi"
 ####Run compile command
 $bitbake core-image-minimal
 
-This will cost a lot of time in your first compile, it will donwload the sources form internet and then compile the sources, so be patient.
+This will cost a lot of time in your first compile, it will donwload the sources form internet and then compile the sources, so be patient with it.
 
 You will get a image file under './tmp/deploy/images/bananapi/core-image-minimal-bananapi.sunxi-sdimg'.
 
